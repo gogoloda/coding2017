@@ -39,12 +39,13 @@ private int size = 0;
 		} else {
 			if (size + 1 >= elementData.length) {
 				elementData = grow(elementData, elementData.length);
+			}
 				for (int i = size-1; i >= index;i--) {
 					elementData[i+1] = elementData[i];
 				}
 				elementData[index] = o;
 				size++;
-			}
+			
 		}
 	}
 	
@@ -65,6 +66,8 @@ private int size = 0;
 			for (int i = index; i < size - 1; i++) {
 				elementData[i] = elementData[i+1];
 			}
+			elementData[size - 1] = 0;
+			size--;
 			return result;
 		}
 	}
